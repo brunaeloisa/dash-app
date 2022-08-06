@@ -41,8 +41,7 @@ X_reduced = pca.transform(X_scaled)
 reduced_base = pd.DataFrame(X_reduced, columns=['col1','col2','col3'])
 
 # Carrega o modelo treinado
-file = urlopen('https://github.com/brunaeloisa/dash-app/blob/master/modelo.sav')
-model = joblib.load(file)
+model = joblib.load(urlopen('https://github.com/brunaeloisa/dash-app/blob/master/modelo.sav'))
 
 # Predição dos grupos
 base2['Clusters'] = model.predict(X_reduced)
