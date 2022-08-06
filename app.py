@@ -6,8 +6,8 @@ import plotly.express as px
 import dash_bootstrap_components as dbc
 
 from pages import clustering, home
-from home import fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10, graphs, graphs2
-from clustering import fig11, fig12, fig13, fig14, fig15, fig16, fig17, fig18, fig19, fig20, graphs3, graphs4
+from pages.home import fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10, graphs, graphs2
+from pages.clustering import fig11, fig12, fig13, fig14, fig15, fig16, fig17, fig18, fig19, fig20, graphs3, graphs4
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.validation_layout = html.Div([home.layout])
@@ -99,4 +99,4 @@ def update_output(fig_name4):
         return dcc.Graph(figure=graphs4[fig_name4])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
