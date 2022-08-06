@@ -5,9 +5,8 @@ from dash import dcc, html, Input, Output, callback
 import plotly.express as px
 import dash_bootstrap_components as dbc
 
-import home
+from pages import clustering, home
 from home import fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10, graphs, graphs2
-import clustering
 from clustering import fig11, fig12, fig13, fig14, fig15, fig16, fig17, fig18, fig19, fig20, graphs3, graphs4
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
