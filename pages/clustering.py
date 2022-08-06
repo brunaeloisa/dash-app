@@ -8,6 +8,7 @@ import plotly.express as px
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+from urllib.request import urlopen
 
 # Dataset
 path = 'https://raw.githubusercontent.com/brunaeloisa/dash-app/main/marketing_campaign_treated.csv'
@@ -40,8 +41,8 @@ X_reduced = pca.transform(X_scaled)
 reduced_base = pd.DataFrame(X_reduced, columns=['col1','col2','col3'])
 
 # Carrega o modelo treinado
-filename = 'modelo.sav'
-model = joblib.load(filename)
+file = urlopen('https://github.com/brunaeloisa/dash-app/blob/master/modelo.sav')
+model = joblib.load(file)
 
 # Predição dos grupos
 base2['Clusters'] = model.predict(X_reduced)
@@ -67,7 +68,6 @@ fig15.update_layout(bargap=0.3, yaxis_title="Número de clientes", xaxis_title="
 
 # Comportamento
 fig16 = px.scatter(base2, x='Spent', y='Income', color='Clusters', category_orders={'Clusters': order}, title='Consumo por renda', template = "none").update_layout(xaxis_title="Spent", yaxis_title="Income")
-#fig16 = px.box(base2, y='Spent', x='Clusters', color='Clusters', title='Consumo', category_orders={'Clusters': order}, template="none").update_layout(yaxis_title='Valor consumido')
 
 fig17 = px.box(base2, y='TotalPurchases', x='Clusters', color='Clusters', title='Número de compras', category_orders={'Clusters': order}, template="none")
 
