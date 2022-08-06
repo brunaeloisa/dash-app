@@ -1,7 +1,5 @@
-# Instalação do Plotly
 Plotly==5.5.0
 
-# Instalação do Dash
 dash
 dash-html-components
 dash-core-components
@@ -9,7 +7,7 @@ dash-bootstrap-components
 
 numpy
 pandas
-joblib
+joblib==1.1.0
 scikit-learn
 
 gunicorn
