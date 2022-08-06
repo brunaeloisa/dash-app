@@ -12,6 +12,7 @@ from pages.clustering import fig11, fig12, fig13, fig14, fig15, fig16, fig17, fi
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.validation_layout = html.Div([home.layout])
 app.config.suppress_callback_exceptions = True
+server = app.server
 
 # Define the navbar structure
 def Navbar():
